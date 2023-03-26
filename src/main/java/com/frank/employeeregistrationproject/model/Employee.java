@@ -1,6 +1,7 @@
 package com.frank.employeeregistrationproject.model;
 
 import lombok.*;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import java.time.LocalDate;
 
@@ -11,7 +12,9 @@ import java.time.LocalDate;
 @ToString
 public class Employee {
     private String firstName;
-    private String lstName;
+    private String lastName;
+
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private LocalDate birthDay;
     private String email;
     private String password;
