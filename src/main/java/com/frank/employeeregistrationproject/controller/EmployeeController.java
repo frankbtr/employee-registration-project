@@ -1,6 +1,9 @@
 package com.frank.employeeregistrationproject.controller;
 
+import com.frank.employeeregistrationproject.bootstrap.DataGenerator;
+import com.frank.employeeregistrationproject.model.Employee;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -9,8 +12,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class EmployeeController {
 
     @GetMapping("/register")
-    public String createEmployee(){
+    public String createEmployee(Model model){
 
+        model.addAttribute("employee", new Employee());
+        model.addAttribute("states", DataGenerator.getAllStates());
         return "employee/employee-create";
     }
 }
